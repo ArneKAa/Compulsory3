@@ -5,42 +5,52 @@
 using namespace std;
 
 int main() {
-	Folder root;
+	Folder root("root", "");
+	Folder* currentFolder = &root;
 	bool alive = true;
 	int input;
 
 	while (alive) {
-		cout << "Create folder     [1]\nCreate file       [2]\nPrint file info   [3]\nChange file name  [4]\n";
-		cout << "List content      [5]\nLocat largest file[6]\n\n";
+		currentFolder->printRecursive(currentFolder->parent);
+		cout << "\nCreate folder      [1]\nCreate file        [2]\nChange file name   [3]\nChange folder name [4]";
+		cout << "\nList content       [5]\nLocate largest file[6]\nOpen folder        [7]\nGo back            [8]\n\n";
 		cin >> input;
 
 		switch (input) {
 			case 1:
-				root.createFolder();
+				currentFolder->createFolder();
 				break;
 
 			case 2:
-				root.createFile();
+				currentFolder->createFile();
 				break;
 
 			case 3:	
-				root.printFile();
+				currentFolder->changeFileName();
 				break;
 				
 			case 4:
-				root.changeFileName();
+				currentFolder->changeFolderName();
 				break;
 
 			case 5:
-				root.listFiles();
+				currentFolder->listContent();
 				break;
 
 			case 6:
-				root.locateLargestFile();
+				currentFolder->locateLargestFile();
+				break;
+
+			case 7:
+				currentFolder = currentFolder->changeFolder();
+				break;
+
+			case 8:
+				currentFolder = currentFolder->parent;
 				break;
 
 			default:
-				cout << "You did something wrong";
+				cout << "Something went wrong";
 				return 0;
 		}
 	}

@@ -3,6 +3,6 @@
 
 File::File()
 {
-
+	size = 0;
 }
 
