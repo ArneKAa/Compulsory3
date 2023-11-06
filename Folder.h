@@ -19,7 +19,6 @@ public:
 	Folder createFolder();
 	Folder* changeFolder();
 	File createFile();
-	File printFile();
 	File changeFileName();
 	File listContent();
 	File locateLargestFile();
