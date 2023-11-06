@@ -9,7 +9,7 @@ private:
 public:
 	Folder();
 	Folder(string name);
-	Folder createFolder();
+	Folder createFolder(string name);
 	File createFile();
 	File printFile();
 	File changeFileName();

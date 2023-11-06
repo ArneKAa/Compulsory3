@@ -17,12 +17,12 @@ Folder::Folder(string name)
 	folders = new Folder[5];
 }
 
-Folder Folder::createFolder()
-{
-	Folder folder;
+Folder Folder::createFolder(string name) {
+
 
 	return Folder();
 }
+
 
 File Folder::createFile() {
 	bool alive;
@@ -43,7 +43,7 @@ File Folder::createFile() {
 
 		for (int i = 0; i < fileQuantity; i++) {
 			if (file.name == files[i].name) {
-				cout << "\nError: name is already in use";
+				cout << "\nError: Name is already in use";
 				alive = true;
 			}
 		}
